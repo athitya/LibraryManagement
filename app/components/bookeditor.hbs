@@ -1,0 +1,27 @@
+<div class="container mt-4" style="width: 55%;">
+    <h3>{{if this.isEdit "Edit" "Add"}} Book</h3>
+    {{!-- <img src="app/" alt=""> --}}
+    <div class="input-field mt-4">
+        <label for="name">Book Name</label>
+        <Input id="name" @value={{this.editBook.name}}/>
+    </div>
+    <div class="input-field mt-4">
+        <label for="author">Author</label>
+        <Input id="author" @value={{this.editBook.author}}/>
+    </div>
+    {{#if this.errorMsg}}
+        <div class="alert alert-danger my-3" role="alert">
+            {{this.errorMsg}}
+        </div> 
+    {{else if this.success}}
+        <div class="alert alert-success my-3" role="alert">
+            {{this.success}}
+        </div>
+            
+    {{/if}}
+
+    <div class="mt-4">
+        <button class="btn btn-outline-primary float-right" type="button" {{on "click" this.addBook}}>{{if this.isEdit "Update" "Add"}} Book</button>
+    </div>
+    
+</div>
